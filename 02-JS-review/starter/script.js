@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 // destructuring
-const book = getBook(2);
+const book = getBook(1);
 
 // const title = book.title;
 // const author = book.author;
@@ -155,6 +155,18 @@ console.log(publicationDate, title, author, genres, pages);
 // const primaryGenre = genres[0];
 // const secondaryGenre = genres[1];
 
-const [primaryGenre, secondaryGenre, tertiaryGenre, quatenaryGenre, quinaryGenre] = genres;
+const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
 
-console.log(primaryGenre, secondaryGenre, tertiaryGenre, quatenaryGenre, quinaryGenre)
+console.log(primaryGenre, secondaryGenre, otherGenres)
+
+const newGenres = [...genres, "Epic Fantasy"];
+newGenres;
+
+const updatedBook = {...book, 
+                        // adding a new propert
+                        moviePublicationDate : "2001-12-19", 
+
+                        // overrideng a new property
+                        pages: "1210"};
+                        
+updatedBook
