@@ -146,5 +146,15 @@ function getBook(id) {
 // destructuring
 const book = getBook(2);
 
-const title = book.title;
-title
+// const title = book.title;
+// const author = book.author;
+
+const {title, author, pages, publicationDate, genres, hasMovieAdaptation} = book;
+console.log(publicationDate, title, author, genres, pages);
+
+// const primaryGenre = genres[0];
+// const secondaryGenre = genres[1];
+
+const [primaryGenre, secondaryGenre, tertiaryGenre, quatenaryGenre, quinaryGenre] = genres;
+
+console.log(primaryGenre, secondaryGenre, tertiaryGenre, quatenaryGenre, quinaryGenre)
