@@ -173,3 +173,29 @@ summary;
 const pagesRange = pages > 1000 ? "over a thousands" : "less than a thousand";
 pagesRange;
 console.log(`${title} has ${pagesRange} pages`);
+
+// short circuiting && immediately return the first value if the first value is false
+console.log(true && "some string")
+console.log(false && "some string")
+console.log(hasMovieAdaptation && "this book has a movie")
+
+// falsy: 0, " ", null, undefined
+console.log("jonas" && "some string")
+console.log(" " && "some string")
+
+// short circuiting || immediately return the first value if the first value is true (the opposite of short circuiting &&)
+console.log(true || "some string")
+console.log(0 || "some string")
+
+console.log(book.translations.spanish)
+
+const spanishTranslation = book.translations.spanish || "NOT TRANSLATED"
+spanishTranslation
+
+console.log(book.reviews.librarything.reviewsCount);
+const countWrong = book.reviews.librarything.reviewsCount || "no data"
+countWrong; //hasilnya 'no data'
+
+// ?? (nullish coalescing) operator will only return the second value when the first value is null or undefined, not when 0 or " "
+const count = book.reviews.librarything.reviewsCount ?? "no data"
+count;
