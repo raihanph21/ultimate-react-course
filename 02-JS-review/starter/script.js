@@ -4,14 +4,7 @@ const data = [
     title: "The Lord of the Rings",
     publicationDate: "1954-07-29",
     author: "J. R. R. Tolkien",
-    genres: [
-      "fantasy",
-      "high-fantasy",
-      "adventure",
-      "fiction",
-      "novels",
-      "literature",
-    ],
+    genres: ["fantasy", "high-fantasy", "adventure", "fiction", "novels", "literature"],
     hasMovieAdaptation: true,
     pages: 1216,
     translations: {
@@ -37,13 +30,7 @@ const data = [
     title: "The Cyberiad",
     publicationDate: "1965-01-01",
     author: "Stanislaw Lem",
-    genres: [
-      "science fiction",
-      "humor",
-      "speculative fiction",
-      "short stories",
-      "fantasy",
-    ],
+    genres: ["science fiction", "humor", "speculative fiction", "short stories", "fantasy"],
     hasMovieAdaptation: false,
     pages: 295,
     translations: {},
@@ -149,7 +136,7 @@ const book = getBook(2);
 // const title = book.title;
 // const author = book.author;
 
-const {title, author, pages, publicationDate, genres, hasMovieAdaptation} = book;
+const { title, author, pages, publicationDate, genres, hasMovieAdaptation } = book;
 console.log(publicationDate, title, author, genres, pages);
 
 // const primaryGenre = genres[0];
@@ -157,23 +144,32 @@ console.log(publicationDate, title, author, genres, pages);
 
 const [primaryGenre, secondaryGenre, ...otherGenres] = genres;
 
-console.log(primaryGenre, secondaryGenre, otherGenres)
+console.log(primaryGenre, secondaryGenre, otherGenres);
 
 const newGenres = [...genres, "Epic Fantasy"];
 newGenres;
 
-const updatedBook = {...book, 
-                        // adding a new propert
-                        moviePublicationDate : "2001-12-19", 
+const updatedBook = {
+  ...book,
+  // adding a new propert
+  moviePublicationDate: "2001-12-19",
 
-                        // overrideng a new property
-                        pages: "1210"};
-                        
+  // overrideng a new property
+  pages: "1210",
+};
+
 updatedBook;
 
-const summary = `${title} is a book from ${publicationDate.split("-")[1]} that has ${pages}, was written by ${author}. ${title} has ${hasMovieAdaptation ? "" : "not"} been adapted to a movie`
-summary
+// function getYear(str) {
+//   return str.split("-")[4];
+// }
+
+const getYear = (str) => str.split("-")[0];
+console.log(getYear(publicationDate));
+
+const summary = `${title} is a book from ${getYear(publicationDate)} that has ${pages} pages, was written by ${author}. ${title} has ${hasMovieAdaptation ? "" : "not"} been adapted to a movie`;
+summary;
 
 const pagesRange = pages > 1000 ? "over a thousands" : "less than a thousand";
-pagesRange
-console.log(`${title} has ${pagesRange} pages`)
+pagesRange;
+console.log(`${title} has ${pagesRange} pages`);
