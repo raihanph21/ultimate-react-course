@@ -144,7 +144,7 @@ function getBook(id) {
 }
 
 // destructuring
-const book = getBook(1);
+const book = getBook(2);
 
 // const title = book.title;
 // const author = book.author;
@@ -171,5 +171,9 @@ const updatedBook = {...book,
                         
 updatedBook;
 
-const summary = `${title} is a book from ${publicationDate.split("-")[1]} that has ${pages}, was written by ${author}`
+const summary = `${title} is a book from ${publicationDate.split("-")[1]} that has ${pages}, was written by ${author}. ${title} has ${hasMovieAdaptation ? "" : "not"} been adapted to a movie`
 summary
+
+const pagesRange = pages > 1000 ? "over a thousands" : "less than a thousand";
+pagesRange
+console.log(`${title} has ${pagesRange} pages`)
