@@ -130,6 +130,7 @@ function getBook(id) {
   return data.find((d) => d.id === id);
 }
 
+/*
 // destructuring
 const book = getBook(3);
 
@@ -210,3 +211,29 @@ function getTotalReviewCount (book) {
 }
 
 console.log(getTotalReviewCount(book));
+*/
+
+// map in array is create a new array based on original array with some operation called to each element of original array
+function getTotalReviewCount (book) {
+  const goodreads = book.reviews?.goodreads.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0; //this whole thing immediately undefined because librarything is undefined, then js will not try to read it and make it as undefined (the whole thing)
+  // itu kaya undefined.reviewsCount
+  return goodreads + librarything;
+}
+
+
+const books = getBooks();
+
+const x = [1,2,3,4,5].map((el) => el * 2); //el is callback function
+console.log(x);
+
+const titles = books.map((book) => book.title);
+titles
+
+const essentialsData = books.map((book) => ({
+    title: book.title,
+    author: book.author,
+    reviewsCount: getTotalReviewCount(book)
+}));
+
+essentialsData
