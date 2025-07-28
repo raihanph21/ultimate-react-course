@@ -169,4 +169,7 @@ const updatedBook = {...book,
                         // overrideng a new property
                         pages: "1210"};
                         
-updatedBook
+updatedBook;
+
+const summary = `${title} is a book from ${publicationDate.split("-")[1]} that has ${pages}, was written by ${author}`
+summary
