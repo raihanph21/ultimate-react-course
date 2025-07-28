@@ -131,7 +131,7 @@ function getBook(id) {
 }
 
 // destructuring
-const book = getBook(2);
+const book = getBook(3);
 
 // const title = book.title;
 // const author = book.author;
@@ -192,10 +192,21 @@ console.log(book.translations.spanish)
 const spanishTranslation = book.translations.spanish || "NOT TRANSLATED"
 spanishTranslation
 
-console.log(book.reviews.librarything.reviewsCount);
-const countWrong = book.reviews.librarything.reviewsCount || "no data"
-countWrong; //hasilnya 'no data'
+// console.log(book.reviews.librarything.reviewsCount);
+// const countWrong = book.reviews.librarything.reviewsCount || "no data"
+// countWrong; //hasilnya 'no data'
 
 // ?? (nullish coalescing) operator will only return the second value when the first value is null or undefined, not when 0 or " "
-const count = book.reviews.librarything.reviewsCount ?? "no data"
-count;
+// const count = book.reviews.librarything.reviewsCount ?? "no data"
+// count;
+
+
+// optional chaining (?) is before ? undefined, js will no longer even try to read reviewscount from behind?. if behind ? is not undefined or not null, then js will read it
+function getTotalReviewCount (book) {
+  const goodreads = book.reviews?.goodreads.reviewsCount;
+  const librarything = book.reviews?.librarything?.reviewsCount ?? 0; //this whole thing immediately undefined because librarything is undefined, then js will not try to read it and make it as undefined (the whole thing)
+  // itu kaya undefined.reviewsCount
+  return goodreads + librarything;
+}
+
+console.log(getTotalReviewCount(book));
