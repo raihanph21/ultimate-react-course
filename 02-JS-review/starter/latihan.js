@@ -299,5 +299,43 @@
 
 // latihan ternary operator
 //1. 
+// TODO:
+// Jika nilai >= 75, cetak "Lulus", selain itu cetak "Tidak Lulus"
 
+const nilai = 80;
+
+// Gunakan ternary operator di bawah ini:
+const hasil = nilai >= 75 ? "Lulus" : "Tidak Lulus"
+console.log(hasil);
+
+
+//2. 
+// TODO:
+// Jika user adalah admin, cetak "Selamat datang, Admin!"
+// Jika bukan, cetak "Akses terbatas."
+
+const user = {
+  name: "Budi",
+  isAdmin: false
+};
+const {name, isAdmin} = user
+
+const pesan = isAdmin === true ? "Selamat datang, Admin!" : "Akses terbatas."  // atau bisa const pesan = isAdmin ? "Selamat datang, Admin!" : "Akses terbatas."; karena isAdmin adalah boolean
+
+console.log(pesan);
+
+
+//3. 
+// TODO:
+// Jika produk masih tersedia (stok > 0), cetak "Tersedia"
+// Jika tidak, cetak "Habis"
+
+const produk = {
+  nama: "Mouse Wireless",
+  stok: 0
+};
+
+const {nama, stok} = produk;
+
+console.log(stok > 0 ? "Tersedia" : "Habis"); //bisa juga console.log(`${nama}: ${stok > 0 ? "Tersedia" : "Habis"}`);
 
