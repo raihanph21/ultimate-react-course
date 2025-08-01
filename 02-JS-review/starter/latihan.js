@@ -141,15 +141,58 @@ console.log("Tema: " + theme)
 //------------------------------------------------------------------------------------------------------------
 
 //2. 
-const produk = {
-  nama: "Kaos Polos",
-  stok: 0,
-  harga: 100000
-};
+// const produk = {
+//   nama: "Kaos Polos",
+//   stok: 0,
+//   harga: 100000
+// };
 
+// // TODO:
+// // 1. Cetak "Stok: 0" — jangan sampai fallback ke "Stok belum tersedia" hanya karena 0 adalah falsy!
+// // 2. Gunakan operator yang tepat, agar 0 tetap tercetak.
+
+// const {nama, stok, harga} = produk;
+// console.log("Stok: " + stok)
+
+//latihan function
+// 1.
 // TODO:
-// 1. Cetak "Stok: 0" — jangan sampai fallback ke "Stok belum tersedia" hanya karena 0 adalah falsy!
-// 2. Gunakan operator yang tepat, agar 0 tetap tercetak.
+// 1. Buat fungsi bernama 'greet' yang menerima 1 parameter 'nama'.
+// 2. Fungsi ini mengembalikan string "Halo, [nama]!".
+// 3. Jika tidak ada nama yang diberikan, tampilkan "Halo, teman!".
 
-const {nama, stok, harga} = produk;
-console.log("Stok: " + stok)
+function greet(nama = "teman!") {
+  return "Halo " + nama;
+}
+
+console.log(greet())
+
+
+//2.
+// TODO:
+// 1. Buat fungsi 'hitungTotal' dengan 2 parameter: harga & jumlah
+// 2. Jika 'jumlah' tidak diberikan, default-nya adalah 1
+// 3. Fungsi mengembalikan hasil harga * jumlah
+function hitungTotal(harga, jumlah = 1) {
+  return harga * jumlah;
+}
+
+console.log(hitungTotal(2, 9))
+
+
+
+//3.
+// TODO:
+// 1. Buat function expression bernama 'luasPersegi' untuk menghitung luas persegi
+// 2. Buat juga versi arrow function-nya bernama 'kelilingPersegi'
+// 3. Keduanya menerima parameter 'sisi'
+function luasPersegi(s) {
+  return s * s;
+}
+
+const kelilingPersegi = (s) => {
+  return s*4
+}
+
+console.log(luasPersegi(4))
+console.log(kelilingPersegi(3))
