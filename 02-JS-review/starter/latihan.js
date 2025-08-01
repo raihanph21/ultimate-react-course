@@ -1,19 +1,19 @@
-const user = {
-  name: "Raihan",
-  age: 25,
-  isPremium: true
-};
+// const user = {
+//   name: "Raihan",
+//   age: 25,
+//   isPremium: true
+// };
 
-// TODO:
-// 1. Ambil name dan isPremium dari objek user dengan destructuring
-// 2. Cetak ke konsol: "Nama: Raihan, Premium: true"
+// // TODO:
+// // 1. Ambil name dan isPremium dari objek user dengan destructuring
+// // 2. Cetak ke konsol: "Nama: Raihan, Premium: true"
 
-console.log("Nama: " + user.name + "," + " Premium: " + user.isPremium)
+// console.log("Nama: " + user.name + "," + " Premium: " + user.isPremium)
 
-const nama = user.name;
-const paket = user.isPremium;
+// const nama = user.name;
+// const paket = user.isPremium;
 
-console.log("Nama: " + nama + ", "+ "Premium: " + paket)
+// console.log("Nama: " + nama + ", "+ "Premium: " + paket)
 
 // ------------------------------------------------------------------------------------------------------------------
 
@@ -118,3 +118,38 @@ const {username, bio, social} = profile1
 console.log(bio || "bio tidak ada")
 
 console.log("Instagram: " + social?.instagram)
+
+//------------------------------------------------------------------------------------------------------------
+
+//1.
+const user = {
+  name: "Raihan",
+  preferences: {
+    theme: "dark"
+    // notice: tidak ada key `language`
+  }
+};
+
+// TODO:
+// 1. Cetak user.preferences.language jika ada, jika tidak tampilkan: "Bahasa default"
+// 2. Cetak theme dengan optional chaining, output: "Tema: dark"
+const {name, preferences: {theme} } = user;
+console.log(user.preferences.language || "Bahasa default");
+
+console.log("Tema: " + theme)
+
+//------------------------------------------------------------------------------------------------------------
+
+//2. 
+const produk = {
+  nama: "Kaos Polos",
+  stok: 0,
+  harga: 100000
+};
+
+// TODO:
+// 1. Cetak "Stok: 0" — jangan sampai fallback ke "Stok belum tersedia" hanya karena 0 adalah falsy!
+// 2. Gunakan operator yang tepat, agar 0 tetap tercetak.
+
+const {nama, stok, harga} = produk;
+console.log("Stok: " + stok)
