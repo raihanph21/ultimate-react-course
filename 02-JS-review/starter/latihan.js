@@ -101,3 +101,20 @@ function tampilkanUser({data: {user: {id, name}, token}}) {
 }
 
 tampilkanUser(response);
+
+//soal reza
+const profile1 = {
+  username: "alif",
+  bio: null,
+  social: {
+    instagram: "@alif_dev"
+  }
+};
+
+// TODO:
+// 1. Cetak bio jika ada, jika tidak tampilkan: "Bio belum diisi"
+// 2. Cetak username IG dengan optional chaining, outputnya: "Instagram: @alif_dev"
+const {username, bio, social} = profile1 
+console.log(bio || "bio tidak ada")
+
+console.log("Instagram: " + social?.instagram)
