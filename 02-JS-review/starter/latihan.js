@@ -81,26 +81,26 @@ console.log("Username: " + namaPengguna + " (verified: " + verified);
 // -------------------------------------------------------------------------------------------------------------
 
 // 3.
-const response = {
-  data: {
-    user: {
-      id: 42,
-      name: "Raihan"
-    },
-    token: "abc123"
-  }
-};
+// const response = {
+//   data: {
+//     user: {
+//       id: 42,
+//       name: "Raihan"
+//     },
+//     token: "abc123"
+//   }
+// };
 
-// TODO:
-// 1. Buat fungsi `tampilkanUser` yang menerima parameter berupa objek di atas
-// 2. Gunakan destructuring langsung di parameter fungsi
-// 3. Cetak: "ID: 42, Nama: Raihan, Token: abc123"
+// // TODO:
+// // 1. Buat fungsi `tampilkanUser` yang menerima parameter berupa objek di atas
+// // 2. Gunakan destructuring langsung di parameter fungsi
+// // 3. Cetak: "ID: 42, Nama: Raihan, Token: abc123"
 
-function tampilkanUser({data: {user: {id, name}, token}}) {
-    console.log("ID: " + id + ", " + "Nama: " + name + " Token: " + token);
-}
+// function tampilkanUser({data: {user: {id, name}, token}}) {
+//     console.log("ID: " + id + ", " + "Nama: " + name + " Token: " + token);
+// }
 
-tampilkanUser(response);
+// tampilkanUser(response);
 
 //soal reza
 const profile1 = {
@@ -122,21 +122,21 @@ console.log("Instagram: " + social?.instagram)
 //------------------------------------------------------------------------------------------------------------
 
 //1.
-const user = {
-  name: "Raihan",
-  preferences: {
-    theme: "dark"
-    // notice: tidak ada key `language`
-  }
-};
+// const user = {
+//   name: "Raihan",
+//   preferences: {
+//     theme: "dark"
+//     // notice: tidak ada key `language`
+//   }
+// };
 
-// TODO:
-// 1. Cetak user.preferences.language jika ada, jika tidak tampilkan: "Bahasa default"
-// 2. Cetak theme dengan optional chaining, output: "Tema: dark"
-const {name, preferences: {theme} } = user;
-console.log(user.preferences.language || "Bahasa default");
+// // TODO:
+// // 1. Cetak user.preferences.language jika ada, jika tidak tampilkan: "Bahasa default"
+// // 2. Cetak theme dengan optional chaining, output: "Tema: dark"
+// const {name, preferences: {theme} } = user;
+// console.log(user.preferences.language || "Bahasa default");
 
-console.log("Tema: " + theme)
+// console.log("Tema: " + theme)
 
 //------------------------------------------------------------------------------------------------------------
 
@@ -235,3 +235,62 @@ const pesan = "Selamat datang kembali";
 // Cetak: "Selamat datang kembali, Zahra! Status akunmu: Premium"
 const {nama, status} = pengguna
 console.log(`${pesan}, ${nama}! Status akunmu: ${status}`)
+
+
+//-----------------------------------------------------------------------------------------------------------------
+
+
+//latihan rest and spread operator
+//1.
+const angkaAwal = [1, 2, 3];
+const angkaTambahan = [4, 5];
+
+// TODO:
+// Gabungkan kedua array di atas jadi satu array baru bernama semuaAngka
+// Output yang diharapkan: [1, 2, 3, 4, 5]
+const hasil = [...angkaAwal, ...angkaTambahan] //... in function is called REST, and outside function called SPREAD
+console.log(hasil)
+
+
+//2. 
+// // TODO:
+// Buat fungsi jumlahkanSemua(...angka) yang menerima jumlah argumen tak terbatas
+// dan mengembalikan total dari semua angka yang diberikan
+
+// Contoh pemanggilan:
+// console.log(jumlahkanSemua(1, 2, 3, 4)) ➜ Output: 10
+const jumlahkanSemua = (...angka) => {
+  return angka.reduce((total, nilai) => total + nilai, 0)
+}
+
+console.log(jumlahkanSemua(2,4,8))
+
+
+//3.
+const userDefault = {
+  role: "user",
+  active: true
+};
+
+const userBaru = {
+  name: "Raihan",
+  age: 24
+};
+
+// TODO:
+// Gabungkan userDefault dan userBaru ke dalam satu objek bernama fullUser
+// Output: { role: "user", active: true, name: "Raihan", age: 24 }
+const {role, active} = userDefault
+const {name, age} = userBaru
+
+// const fullUser = {
+//   role,
+//   active,
+//   name,
+//   age
+// }
+
+//atau
+const fullUser = {...userDefault, ...userBaru}
+
+console.log(fullUser)
