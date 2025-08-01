@@ -68,15 +68,15 @@ console.log("Username: " + namaPengguna + " (verified: " + verified);
 //------------------------------------------------------------------------------------------------------ 
 
 // 2. 
-const hasil = ["Sukses"];
+// const hasil = ["Sukses"];
 
-// TODO:
-// 1. Ambil elemen pertama sebagai 'status'
-// 2. Ambil elemen kedua sebagai 'kode', jika tidak ada beri default "000"
-// 3. Cetak ke konsol: "Status: Sukses, Kode: 000"
+// // TODO:
+// // 1. Ambil elemen pertama sebagai 'status'
+// // 2. Ambil elemen kedua sebagai 'kode', jika tidak ada beri default "000"
+// // 3. Cetak ke konsol: "Status: Sukses, Kode: 000"
 
-const [status, kode = "000"] = hasil; //kode = "000" is default parameter which means if there is no value, it will print the default parameter instead of undefined
-console.log("Status : " + status + ", " + "Kode: " + kode)
+// const [status, kode = "000"] = hasil; //kode = "000" is default parameter which means if there is no value, it will print the default parameter instead of undefined
+// console.log("Status : " + status + ", " + "Kode: " + kode)
 
 // -------------------------------------------------------------------------------------------------------------
 
@@ -173,11 +173,11 @@ console.log(greet())
 // 1. Buat fungsi 'hitungTotal' dengan 2 parameter: harga & jumlah
 // 2. Jika 'jumlah' tidak diberikan, default-nya adalah 1
 // 3. Fungsi mengembalikan hasil harga * jumlah
-function hitungTotal(harga, jumlah = 1) {
-  return harga * jumlah;
-}
+// function hitungTotal(harga, jumlah = 1) {
+//   return harga * jumlah;
+// }
 
-console.log(hitungTotal(2, 9))
+// console.log(hitungTotal(2, 9))
 
 
 
@@ -196,3 +196,42 @@ const kelilingPersegi = (s) => {
 
 console.log(luasPersegi(4))
 console.log(kelilingPersegi(3))
+
+
+//latihan template literals
+//1. 
+// const nama = "Alif";
+// const umur = 21;
+
+// // TODO:
+// // Cetak: "Halo, nama saya Alif dan umur saya 21 tahun."
+// console.log(`Halo nama saya ${nama} dan umur saya ${umur} tahun`)
+
+
+
+//2.
+// const produk = {
+//   nama: "Kopi Hitam",
+//   harga: 18000,
+//   stok: 12
+// };
+
+// // TODO:
+// // Cetak: "Produk: Kopi Hitam (Rp18000) — Tersisa 12 stok"
+// const {nama, harga, stok} = produk
+// console.log(`Produk: ${nama} (${harga}) - Tersisa 12 stok`)
+
+
+
+//3. 
+const pengguna = {
+  nama: "Zahra",
+  status: "Premium"
+};
+
+const pesan = "Selamat datang kembali";
+
+// TODO:
+// Cetak: "Selamat datang kembali, Zahra! Status akunmu: Premium"
+const {nama, status} = pengguna
+console.log(`${pesan}, ${nama}! Status akunmu: ${status}`)
