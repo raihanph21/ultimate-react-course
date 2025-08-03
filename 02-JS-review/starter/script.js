@@ -223,8 +223,8 @@ function getTotalReviewCount(book) {
 
 const books = getBooks();
 
-const x = [1, 2, 3, 4, 5].map((el) => el * 2); //el is callback function
-console.log(x);
+// const x = [1, 2, 3, 4, 5].map((el) => el * 2); //el is callback function
+// console.log(x);
 
 const titles = books.map((book) => book.title);
 titles;
@@ -249,3 +249,11 @@ adventureBook;
 
 const allPagesBooks = books.reduce((accumulator , bookash) => accumulator + bookash.pages, 0); //accumulator bisa diganti apa aja namanya
 allPagesBooks
+
+const arr = [3, 7, 1, 9, 6];
+const sorted = arr.slice().sort((a,b) => a - b); //a-b jadinya ascending, b-a descending. slice untuk mengcopy array sehingga array arr tidak terganti
+sorted
+arr
+
+const sortedByPages = books.slice().sort((a,b) => b.pages - a.pages)
+sortedByPages
