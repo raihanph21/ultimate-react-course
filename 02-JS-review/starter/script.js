@@ -240,20 +240,19 @@ essentialsData;
 const longBooksWithMovie = books.filter((book) => book.pages > 500).filter((book) => book.hasMovieAdaptation);
 longBooksWithMovie;
 
-const adventureBook = books
-.filter((books) => books.genres.includes("adventure"))
-.map((book=> book.title));
+const adventureBook = books.filter((books) => books.genres.includes("adventure")).map((book) => book.title);
 
 adventureBook;
 
-
-const allPagesBooks = books.reduce((accumulator , bookash) => accumulator + bookash.pages, 0); //accumulator bisa diganti apa aja namanya
-allPagesBooks
+const allPagesBooks = books.reduce((accumulator, bookash) => accumulator + bookash.pages, 0); //accumulator bisa diganti apa aja namanya
+allPagesBooks;
 
 const arr = [3, 7, 1, 9, 6];
-const sorted = arr.slice().sort((a,b) => a - b); //a-b jadinya ascending, b-a descending. slice untuk mengcopy array sehingga array arr tidak terganti
-sorted
-arr
+const sorted = arr.slice().sort((a, b) => a - b); //a-b jadinya ascending, b-a descending. slice untuk mengcopy array sehingga array arr tidak terganti
+sorted;
+arr;
 
-const sortedByPages = books.slice().sort((a,b) => b.pages - a.pages)
-sortedByPages
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+sortedByPages;
+const sortedByPagesOnly = sortedByPages.map((book) => book.title);
+sortedByPagesOnly
