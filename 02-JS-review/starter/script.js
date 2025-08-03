@@ -247,5 +247,5 @@ const adventureBook = books
 adventureBook;
 
 
-const allPagesBooks = books.reduce((accumulator , books) => accumulator + books.pages, 0); //accumulator bisa diganti apa aja namanya
+const allPagesBooks = books.reduce((accumulator , bookash) => accumulator + bookash.pages, 0); //accumulator bisa diganti apa aja namanya
 allPagesBooks
