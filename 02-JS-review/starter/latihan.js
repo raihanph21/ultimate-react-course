@@ -314,15 +314,15 @@ console.log(hasil);
 // Jika user adalah admin, cetak "Selamat datang, Admin!"
 // Jika bukan, cetak "Akses terbatas."
 
-const user = {
-  name: "Budi",
-  isAdmin: false
-};
-const {name, isAdmin} = user
+// const user = {
+//   name: "Budi",
+//   isAdmin: false
+// };
+// const {name, isAdmin} = user
 
-const pesan = isAdmin === true ? "Selamat datang, Admin!" : "Akses terbatas."  // atau bisa const pesan = isAdmin ? "Selamat datang, Admin!" : "Akses terbatas."; karena isAdmin adalah boolean
+// const pesan = isAdmin === true ? "Selamat datang, Admin!" : "Akses terbatas."  // atau bisa const pesan = isAdmin ? "Selamat datang, Admin!" : "Akses terbatas."; karena isAdmin adalah boolean
 
-console.log(pesan);
+// console.log(pesan);
 
 
 //3. 
@@ -339,3 +339,45 @@ const {nama, stok} = produk;
 
 console.log(stok > 0 ? "Tersedia" : "Habis"); //bisa juga console.log(`${nama}: ${stok > 0 ? "Tersedia" : "Habis"}`);
 
+
+// -----------------------------------------------------------------------------------------------------
+//1.
+const user = {
+  name: "Raihan",
+  email: ""
+};
+
+// TODO:
+// 1. Cetak nama user, jika kosong tampilkan "Pengguna Baru"
+// 2. Cetak email jika ada, kalau tidak tampilkan "Email belum diisi"
+const {name, email} = user;
+const displayName = name || "Pengguna Baru"
+const displayEmail = email || "Email belum diisi"
+
+console.log(`${displayName} ${displayEmail}`)
+
+
+
+//2. 
+const isLoggedIn = true;
+const hasAccess = false;
+
+// TODO:
+// 1. Jika user sudah login dan punya akses, tampilkan "Selamat datang!"
+// 2. Jika tidak, jangan tampilkan apapun
+
+
+
+
+//3. 
+const settings = {
+  darkMode: false,
+  language: "id"
+};
+
+// TODO:
+// 1. Cetak bahasa (language), default ke "en" jika tidak ada
+// 2. Aktifkan dark mode hanya jika darkMode bernilai true
+const {darkMode, language} = settings;
+console.log(language || "en")
+darkMode && console.log("Dark mode aktif")
