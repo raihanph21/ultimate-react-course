@@ -245,3 +245,7 @@ const adventureBook = books
 .map((book=> book.title));
 
 adventureBook;
+
+
+const allPagesBooks = books.reduce((accumulator , books) => accumulator + books.pages, 0); //accumulator bisa diganti apa aja namanya
+allPagesBooks
