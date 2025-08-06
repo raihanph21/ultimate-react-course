@@ -213,6 +213,7 @@ function getTotalReviewCount (book) {
 console.log(getTotalReviewCount(book));
 */
 
+/*
 // map in array is create a new array based on original array with some operation called to each element of original array
 function getTotalReviewCount(book) {
   const goodreads = book.reviews?.goodreads.reviewsCount;
@@ -275,3 +276,13 @@ booksAfterDelete;
 const booksAfterUpdate = booksAfterDelete.map((book) => (
   book.id === 1 ? {...book, title: "hai nama saya aku", pages: 1, author: "Raihan"} : book));
 booksAfterUpdate
+*/
+
+
+//"Setiap eksekusi kode yang jalan di JS berdiri sendiri dan tidak berhubungan dengan eksekusi kode yang lain."
+fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+
+  console.log("raihan")
+  console.log("reza")
