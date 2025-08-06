@@ -387,25 +387,87 @@
 
 //latihan immutable array
 //1. Buat array baru produkBaru yang berisi semua produk dari produkAwal dan satu produk tambahan { id: 3, nama: "Coklat", stok: 15 } tanpa mengubah produkAwal.
-const produkAwal = [
-  { id: 1, nama: "Kopi", stok: 10 },
-  { id: 2, nama: "Teh", stok: 20 },
-]
+// const produkAwal = [
+//   { id: 1, nama: "Kopi", stok: 10 },
+//   { id: 2, nama: "Teh", stok: 20 },
+// ]
 
-const produk3 = {
-  id: 3,
-  nama: "Coklat",
-  stok: 15
+// const produk3 = {
+//   id: 3,
+//   nama: "Coklat",
+//   stok: 15
+// }
+
+// const produkBaru = [...produkAwal, produk3]
+// console.log(produkBaru)
+
+// //2. Dari array produkAwal yang sama seperti di atas, buat array baru produkTanpaTeh yang berisi semua produk kecuali yang id-nya 2 (yaitu Teh).
+// const produkTanpaTeh = produkAwal.filter(produk => produk.id !== 2)
+// console.log(produkTanpaTeh)
+
+// //3. Masih dari produkAwal, buat array baru produkUpdate yang sama persis, kecuali produk dengan id 1 (Kopi) stoknya diubah jadi 99.
+
+// const produkUpdate = produkAwal.map((produk) => produk.id === 1 ? {...produkAwal, stok: 99 } : produkAwal)
+// console.log(produkUpdate)
+
+
+
+//latihan promises
+/*
+Anggap kamu lagi membangun aplikasi toko online. Kamu punya fungsi yang:
+Mengecek stok barang (asynchronous)
+Mengirimkan notifikasi ke user jika stok tersedia
+Menolak jika stok kosong
+*/
+
+//LATIHAN 1: Buat Promise sederhana
+/* Instruksi:
+Buat sebuah Promise bernama cekStok
+Kalau stok > 0, resolve("Stok tersedia")
+Kalau stok === 0, reject("Stok habis") */
+
+const cekStok = new Promise ((resolve, reject) => {
+  const stok = 5;
+  
+  if (stok > 0) {
+    resolve("Stok Tersedia")
+  } else {
+    reject("Stok Habis")
+  }
+});
+
+//LATIHAN 2: Konsumsi Promise dengan .then() dan .catch()
+/*Instruksi:
+Panggil cekStok
+Kalau berhasil, cetak: ✅ Stok tersedia
+Kalau gagal, cetak: ❌ Stok habis */
+
+cekStok
+  .then((benar) => {
+    console.log(benar)
+  })
+  .catch((salah) => {
+    console.log(salah)
+  })
+
+/*3.  LATIHAN 3: Ubah jadi fungsi
+Instruksi:
+Buat function periksaStok(stok) yang mengembalikan Promise
+Lalu panggil function ini dengan stok berbeda-beda:
+periksaStok(3)
+periksaStok(0)*/
+
+const periksaStok = (stok) => {
+  return new Promise((resolve, reject) => {
+    if (stok > 0) {
+      resolve ("Stok tersedia")
+    } else {
+      reject ("Stok Habis")
+    }
+  })
 }
 
-const produkBaru = [...produkAwal, produk3]
-console.log(produkBaru)
+periksaStok(50)
+  .then((msg) => console.log(msg))
+  .catch((err) => console.log(err))
 
-//2. Dari array produkAwal yang sama seperti di atas, buat array baru produkTanpaTeh yang berisi semua produk kecuali yang id-nya 2 (yaitu Teh).
-const produkTanpaTeh = produkAwal.filter(produk => produk.id !== 2)
-console.log(produkTanpaTeh)
-
-//3. Masih dari produkAwal, buat array baru produkUpdate yang sama persis, kecuali produk dengan id 1 (Kopi) stoknya diubah jadi 99.
-
-const produkUpdate = produkAwal.map((produk) => produk.id === 1 ? {...produkAwal, stok: 99 } : produkAwal)
-console.log(produkUpdate)
