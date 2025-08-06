@@ -381,3 +381,6 @@ const settings = {
 const {darkMode, language} = settings;
 console.log(language || "en")
 darkMode && console.log("Dark mode aktif")
+
+//... di parameter function namanya rest
+//... di array atau object assignment (diluar function) namanya spread
