@@ -302,85 +302,110 @@
 // TODO:
 // Jika nilai >= 75, cetak "Lulus", selain itu cetak "Tidak Lulus"
 
-const nilai = 80;
+// const nilai = 80;
 
-// Gunakan ternary operator di bawah ini:
-const hasil = nilai >= 75 ? "Lulus" : "Tidak Lulus"
-console.log(hasil);
+// // Gunakan ternary operator di bawah ini:
+// const hasil = nilai >= 75 ? "Lulus" : "Tidak Lulus"
+// console.log(hasil);
 
 
-//2. 
-// TODO:
-// Jika user adalah admin, cetak "Selamat datang, Admin!"
-// Jika bukan, cetak "Akses terbatas."
+// //2. 
+// // TODO:
+// // Jika user adalah admin, cetak "Selamat datang, Admin!"
+// // Jika bukan, cetak "Akses terbatas."
 
-// const user = {
-//   name: "Budi",
-//   isAdmin: false
+// // const user = {
+// //   name: "Budi",
+// //   isAdmin: false
+// // };
+// // const {name, isAdmin} = user
+
+// // const pesan = isAdmin === true ? "Selamat datang, Admin!" : "Akses terbatas."  // atau bisa const pesan = isAdmin ? "Selamat datang, Admin!" : "Akses terbatas."; karena isAdmin adalah boolean
+
+// // console.log(pesan);
+
+
+// //3. 
+// // TODO:
+// // Jika produk masih tersedia (stok > 0), cetak "Tersedia"
+// // Jika tidak, cetak "Habis"
+
+// const produk = {
+//   nama: "Mouse Wireless",
+//   stok: 0
 // };
-// const {name, isAdmin} = user
 
-// const pesan = isAdmin === true ? "Selamat datang, Admin!" : "Akses terbatas."  // atau bisa const pesan = isAdmin ? "Selamat datang, Admin!" : "Akses terbatas."; karena isAdmin adalah boolean
+// const {nama, stok} = produk;
 
-// console.log(pesan);
-
-
-//3. 
-// TODO:
-// Jika produk masih tersedia (stok > 0), cetak "Tersedia"
-// Jika tidak, cetak "Habis"
-
-const produk = {
-  nama: "Mouse Wireless",
-  stok: 0
-};
-
-const {nama, stok} = produk;
-
-console.log(stok > 0 ? "Tersedia" : "Habis"); //bisa juga console.log(`${nama}: ${stok > 0 ? "Tersedia" : "Habis"}`);
+// console.log(stok > 0 ? "Tersedia" : "Habis"); //bisa juga console.log(`${nama}: ${stok > 0 ? "Tersedia" : "Habis"}`);
 
 
-// -----------------------------------------------------------------------------------------------------
-//1.
-const user = {
-  name: "Raihan",
-  email: ""
-};
+// // -----------------------------------------------------------------------------------------------------
+// //1.
+// const user = {
+//   name: "Raihan",
+//   email: ""
+// };
 
-// TODO:
-// 1. Cetak nama user, jika kosong tampilkan "Pengguna Baru"
-// 2. Cetak email jika ada, kalau tidak tampilkan "Email belum diisi"
-const {name, email} = user;
-const displayName = name || "Pengguna Baru"
-const displayEmail = email || "Email belum diisi"
+// // TODO:
+// // 1. Cetak nama user, jika kosong tampilkan "Pengguna Baru"
+// // 2. Cetak email jika ada, kalau tidak tampilkan "Email belum diisi"
+// const {name, email} = user;
+// const displayName = name || "Pengguna Baru"
+// const displayEmail = email || "Email belum diisi"
 
-console.log(`${displayName} ${displayEmail}`)
+// console.log(`${displayName} ${displayEmail}`)
 
 
 
-//2. 
-const isLoggedIn = true;
-const hasAccess = false;
+// //2. 
+// const isLoggedIn = true;
+// const hasAccess = false;
 
-// TODO:
-// 1. Jika user sudah login dan punya akses, tampilkan "Selamat datang!"
-// 2. Jika tidak, jangan tampilkan apapun
+// // TODO:
+// // 1. Jika user sudah login dan punya akses, tampilkan "Selamat datang!"
+// // 2. Jika tidak, jangan tampilkan apapun
 
 
 
 
-//3. 
-const settings = {
-  darkMode: false,
-  language: "id"
-};
+// //3. 
+// const settings = {
+//   darkMode: false,
+//   language: "id"
+// };
 
-// TODO:
-// 1. Cetak bahasa (language), default ke "en" jika tidak ada
-// 2. Aktifkan dark mode hanya jika darkMode bernilai true
-const {darkMode, language} = settings;
-console.log(language || "en")
-darkMode && console.log("Dark mode aktif")
+// // TODO:
+// // 1. Cetak bahasa (language), default ke "en" jika tidak ada
+// // 2. Aktifkan dark mode hanya jika darkMode bernilai true
+// const {darkMode, language} = settings;
+// console.log(language || "en")
+// darkMode && console.log("Dark mode aktif")
 
 //... di parameter function namanya rest
 //... di array atau object assignment (diluar function) namanya spread
+
+//latihan immutable array
+//1. Buat array baru produkBaru yang berisi semua produk dari produkAwal dan satu produk tambahan { id: 3, nama: "Coklat", stok: 15 } tanpa mengubah produkAwal.
+const produkAwal = [
+  { id: 1, nama: "Kopi", stok: 10 },
+  { id: 2, nama: "Teh", stok: 20 },
+]
+
+const produk3 = {
+  id: 3,
+  nama: "Coklat",
+  stok: 15
+}
+
+const produkBaru = [...produkAwal, produk3]
+console.log(produkBaru)
+
+//2. Dari array produkAwal yang sama seperti di atas, buat array baru produkTanpaTeh yang berisi semua produk kecuali yang id-nya 2 (yaitu Teh).
+const produkTanpaTeh = produkAwal.filter(produk => produk.id !== 2)
+console.log(produkTanpaTeh)
+
+//3. Masih dari produkAwal, buat array baru produkUpdate yang sama persis, kecuali produk dengan id 1 (Kopi) stoknya diubah jadi 99.
+
+const produkUpdate = produkAwal.map((produk) => produk.id === 1 ? {...produkAwal, stok: 99 } : produkAwal)
+console.log(produkUpdate)
