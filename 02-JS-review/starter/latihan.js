@@ -501,36 +501,36 @@ Kalau stok === 0, reject("Stok habis") */
 
 
 //latihan async/await
-function ambilNama() {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => reject("Raihan"), 1000);
-  });
-}
-// TODO: Buat fungsi async bernama tampilkanNama()
-// Gunakan await untuk ambil nama, lalu tampilkan ke konsol
+// function ambilNama() {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => reject("Raihan"), 1000);
+//   });
+// }
+// // TODO: Buat fungsi async bernama tampilkanNama()
+// // Gunakan await untuk ambil nama, lalu tampilkan ke konsol
 
 
-function ambilUmur() {
-  return new Promise((resolve) => {
-    setTimeout(() => resolve(25), 1000);
-  });
-}
-// TODO:
-// Buat fungsi async tampilkanData()
-// Gunakan await untuk ambil nama dan umur
-// Tampilkan: "Nama: Raihan, Umur: 25"
+// function ambilUmur() {
+//   return new Promise((resolve) => {
+//     setTimeout(() => resolve(25), 1000);
+//   });
+// }
+// // TODO:
+// // Buat fungsi async tampilkanData()
+// // Gunakan await untuk ambil nama dan umur
+// // Tampilkan: "Nama: Raihan, Umur: 25"
 
-async function tampilkanData() {
-  try {
-    const hasilNama = await ambilNama()
-    const hasilUmur = await ambilUmur()
-    console.log(`Nama: ${hasilNama}, Umur: ${hasilUmur}`)
-  } catch (error) {
-    console.log("Terjadi error")
-  }
-}
+// async function tampilkanData() {
+//   try {
+//     const hasilNama = await ambilNama()
+//     const hasilUmur = await ambilUmur()
+//     console.log(`Nama: ${hasilNama}, Umur: ${hasilUmur}`)
+//   } catch (error) {
+//     console.log("Terjadi error")
+//   }
+// }
 
-tampilkanData()
+// tampilkanData()
 
 // async function tampilkanNama () {
 //   try {
@@ -540,3 +540,32 @@ tampilkanData()
 //     console.log("Terjadi error" + error)
 //   }
 // }
+
+
+//LATIHAN
+function cekCuaca() {
+  return new Promise((resolve, reject) => {
+    const sukses = Math.random() > 0.5; // 50% kemungkinan sukses
+
+    setTimeout(() => {
+      if (sukses) {
+        resolve("Cerah");
+      } else {
+        reject("Hujan deras!");
+      }
+    }, 1000);
+  });
+}
+
+//Buat async function tampilkanCuaca()
+//Gunakan await cekCuaca() di dalamnya
+//Tangani error dengan try/catch
+
+async function tampilkanCuaca() {
+  try {
+    const hasil = await cekCuaca()
+    console.log(`Cuaca hari ini: ${hasil}`)
+  } catch (error) {
+    console.log(`Gagal cek cuaca: ${error}`)
+  }
+}
