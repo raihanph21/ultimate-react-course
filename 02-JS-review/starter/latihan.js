@@ -426,48 +426,74 @@ Buat sebuah Promise bernama cekStok
 Kalau stok > 0, resolve("Stok tersedia")
 Kalau stok === 0, reject("Stok habis") */
 
-const cekStok = new Promise ((resolve, reject) => {
-  const stok = 5;
+// const cekStok = new Promise ((resolve, reject) => {
+//   const stok = 5;
   
-  if (stok > 0) {
-    resolve("Stok Tersedia")
-  } else {
-    reject("Stok Habis")
-  }
-});
+//   if (stok > 0) {
+//     resolve("Stok Tersedia")
+//   } else {
+//     reject("Stok Habis")
+//   }
+// });
 
-//LATIHAN 2: Konsumsi Promise dengan .then() dan .catch()
-/*Instruksi:
-Panggil cekStok
-Kalau berhasil, cetak: ✅ Stok tersedia
-Kalau gagal, cetak: ❌ Stok habis */
+// //LATIHAN 2: Konsumsi Promise dengan .then() dan .catch()
+// /*Instruksi:
+// Panggil cekStok
+// Kalau berhasil, cetak: ✅ Stok tersedia
+// Kalau gagal, cetak: ❌ Stok habis */
 
-cekStok
-  .then((benar) => {
-    console.log(benar)
-  })
-  .catch((salah) => {
-    console.log(salah)
-  })
+// cekStok
+//   .then((benar) => {
+//     console.log(benar)
+//   })
+//   .catch((salah) => {
+//     console.log(salah)
+//   })
 
-/*3.  LATIHAN 3: Ubah jadi fungsi
-Instruksi:
-Buat function periksaStok(stok) yang mengembalikan Promise
-Lalu panggil function ini dengan stok berbeda-beda:
-periksaStok(3)
-periksaStok(0)*/
+// /*3.  LATIHAN 3: Ubah jadi fungsi
+// Instruksi:
+// Buat function periksaStok(stok) yang mengembalikan Promise
+// Lalu panggil function ini dengan stok berbeda-beda:
+// periksaStok(3)
+// periksaStok(0)*/
 
-const periksaStok = (stok) => {
+// const periksaStok = (stok) => {
+//   return new Promise((resolve, reject) => {
+//     if (stok > 0) {
+//       resolve ("Stok tersedia")
+//     } else {
+//       reject ("Stok Habis")
+//     }
+//   })
+// }
+
+// periksaStok(50)
+//   .then((msg) => console.log(msg))
+//   .catch((err) => console.log(err))
+
+
+
+//Latihan async/await
+//1. Ubah Promise ke async/await
+
+const cekStok = (stok) => {
   return new Promise((resolve, reject) => {
     if (stok > 0) {
-      resolve ("Stok tersedia")
+      resolve ("Stok Tersedia")
     } else {
-      reject ("Stok Habis")
+      reject("Stok Habis")
     }
-  })
+  });
+};
+
+async function periksa(stok) {
+  try {
+    const hasil = await cekStok(stok)
+    console.log(hasil);
+  } catch (err) {
+    console.log(err)
+  }
 }
 
-periksaStok(50)
-  .then((msg) => console.log(msg))
-  .catch((err) => console.log(err))
-
+periksa(10)
+periksa (0)
