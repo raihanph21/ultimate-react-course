@@ -476,24 +476,67 @@ Kalau stok === 0, reject("Stok habis") */
 //Latihan async/await
 //1. Ubah Promise ke async/await
 
-const cekStok = (stok) => {
-  return new Promise((resolve, reject) => {
-    if (stok > 0) {
-      resolve ("Stok Tersedia")
-    } else {
-      reject("Stok Habis")
-    }
-  });
-};
+// const cekStok = (stok) => {
+//   return new Promise((resolve, reject) => {
+//     if (stok > 0) {
+//       resolve ("Stok Tersedia")
+//     } else {
+//       reject("Stok Habis")
+//     }
+//   });
+// };
 
-async function periksa(stok) {
+// async function periksa(stok) {
+//   try {
+//     const hasil = await cekStok(stok)
+//     console.log(hasil);
+//   } catch (err) {
+//     console.log(err)
+//   }
+// }
+
+// periksa(10)
+// periksa (0)
+
+
+
+//latihan async/await
+function ambilNama() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => reject("Raihan"), 1000);
+  });
+}
+// TODO: Buat fungsi async bernama tampilkanNama()
+// Gunakan await untuk ambil nama, lalu tampilkan ke konsol
+
+
+function ambilUmur() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(25), 1000);
+  });
+}
+// TODO:
+// Buat fungsi async tampilkanData()
+// Gunakan await untuk ambil nama dan umur
+// Tampilkan: "Nama: Raihan, Umur: 25"
+
+async function tampilkanData() {
   try {
-    const hasil = await cekStok(stok)
-    console.log(hasil);
-  } catch (err) {
-    console.log(err)
+    const hasilNama = await ambilNama()
+    const hasilUmur = await ambilUmur()
+    console.log(`Nama: ${hasilNama}, Umur: ${hasilUmur}`)
+  } catch (error) {
+    console.log("Terjadi error")
   }
 }
 
-periksa(10)
-periksa (0)
+tampilkanData()
+
+// async function tampilkanNama () {
+//   try {
+//     const hasil = await ambilNama()
+//     console.log("Nama: " + hasil)
+//   } catch (error) {
+//     console.log("Terjadi error" + error)
+//   }
+// }
