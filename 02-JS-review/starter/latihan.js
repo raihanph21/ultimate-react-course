@@ -543,25 +543,59 @@ Kalau stok === 0, reject("Stok habis") */
 
 
 //LATIHAN
-function login(username, password) {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (username === "admin" && password === "12345") {
-        resolve("Login berhasil!");
-      } else {
-        reject("Username atau password salah.");
-      }
-    }, 1000);
-  });
-}
+// function login(username, password) {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (username === "admin" && password === "12345") {
+//         resolve("Login berhasil!");
+//       } else {
+//         reject("Username atau password salah.");
+//       }
+//     }, 1000);
+//   });
+// }
 
-async function cekLogin() {
-  try {
-    const hasil = await login("admin", "12345")
-    console.log(`Sukses: ${hasil}`)
-  } catch (error) {
-    console.log(`Error: Username atau password salah`)
-  }
-}
+// async function cekLogin() {
+//   try {
+//     const hasil = await login("admin", "12345")
+//     console.log(`Sukses: ${hasil}`)
+//   } catch (error) {
+//     console.log(`Error: Username atau password salah`)
+//   }
+// }
 
-cekLogin()
+// cekLogin()
+
+
+
+//Latihan lagi
+// function getProduct(id) {
+//   return new Promise((resolve, reject) => {
+//     const database = {
+//       1: "Laptop",
+//       2: "Smartphone",
+//       3: "Headset"
+//     };
+
+//     setTimeout(() => {
+//       if (database[id]) {
+//         resolve(database[id]);
+//       } else {
+//         reject("Produk tidak ditemukan.");
+//       }
+//     }, 1000);
+//   });
+// }
+
+// async function tampilkanProduk(id) {
+//   try {
+//     const hasil = await getProduct(id)
+//     console.log(`Produk ditemukan: ${hasil}`)
+//   } catch (error) {
+//     console.log(`Error: ${error}`)
+//   }
+// }
+
+// tampilkanProduk(5)
+// tampilkanProduk(0)
+// tampilkanProduk(2)
