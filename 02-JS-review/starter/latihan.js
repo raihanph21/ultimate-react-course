@@ -543,29 +543,25 @@ Kalau stok === 0, reject("Stok habis") */
 
 
 //LATIHAN
-function cekCuaca() {
+function login(username, password) {
   return new Promise((resolve, reject) => {
-    const sukses = Math.random() > 0.5; // 50% kemungkinan sukses
-
     setTimeout(() => {
-      if (sukses) {
-        resolve("Cerah");
+      if (username === "admin" && password === "12345") {
+        resolve("Login berhasil!");
       } else {
-        reject("Hujan deras!");
+        reject("Username atau password salah.");
       }
     }, 1000);
   });
 }
 
-//Buat async function tampilkanCuaca()
-//Gunakan await cekCuaca() di dalamnya
-//Tangani error dengan try/catch
-
-async function tampilkanCuaca() {
+async function cekLogin() {
   try {
-    const hasil = await cekCuaca()
-    console.log(`Cuaca hari ini: ${hasil}`)
+    const hasil = await login("admin", "12345")
+    console.log(`Sukses: ${hasil}`)
   } catch (error) {
-    console.log(`Gagal cek cuaca: ${error}`)
+    console.log(`Error: Username atau password salah`)
   }
 }
+
+cekLogin()
