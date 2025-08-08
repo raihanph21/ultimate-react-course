@@ -599,3 +599,48 @@ Kalau stok === 0, reject("Stok habis") */
 // tampilkanProduk(5)
 // tampilkanProduk(0)
 // tampilkanProduk(2)
+
+
+
+
+//Latihan lagiii
+function login(username, password) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (username === "admin" && password === "12345") {
+        resolve("admin");
+      } else {
+        reject("Login gagal.");
+      }
+    }, 1000);
+  });
+}
+
+function getProfile(username) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const profiles = {
+        admin: { nama: "Raihan", role: "Super Admin" }
+      };
+      
+      if (profiles[username]) {
+        resolve(profiles[username]);
+      } else {
+        reject("Profil tidak ditemukan.");
+      }
+    }, 1000);
+  });
+}
+
+async function prosesLogin(username, password) {
+  try {
+    const login1 = await login(username, password)
+    const profil1 = await getProfile(login1)
+    console.log("Login Berhasil")
+    console.log(`Nama: ${profil1.nama}, Role: ${profil1.role}`);
+  } catch (error) {
+    console.log(`Terjadi error: ${error}`)
+  }
+}
+
+prosesLogin("admin", "asd")
